@@ -4,7 +4,7 @@ This project implements a **Retrieval-Augmented Generation (RAG) pipeline** to a
 
 ---
 # Features
-Add your own .txt files to the data/ folder to create a custom knowledge base.
+Add your own .txt/.pdf files to the data/ folder to create a custom knowledge base.
 Uses the Google Gemini API for query resolution.
 Answers queries based on the content of your text files.
 Easy-to-run Python application.
@@ -21,7 +21,7 @@ cd <repo-directory>
 # 2. Make a virtual environment and install all the required dependencies
 pip intall -r requirements.txt
 
-# 3. Add your .txt files to the 'data/' folder
+# 3. Add your .txt/.pdf files to the 'data/' folder
 
 # 4. Set your Google Gemini API key in .env file as shown in .env_example
 export GOOGLE_GEMINI_API_KEY="your_api_key_here"  # Linux/macOS
