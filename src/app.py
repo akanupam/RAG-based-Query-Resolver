@@ -4,10 +4,8 @@ from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from vectordb import VectorDB
-# from langchain_openai import ChatOpenAI
-# from langchain_groq import ChatGroq
 from langchain_google_genai import ChatGoogleGenerativeAI
-
+import PyPDF2
 # Load environment variables
 load_dotenv()
 
@@ -25,12 +23,18 @@ def load_documents() -> List[str]:
     results = []
     data_dir = "data"
     for filename in os.listdir(data_dir):
+        file_path = os.path.join(data_dir,filename)
         if filename.endswith(".txt"):
-            file_path = os.path.join(data_dir,filename)
             with open(file_path, "r",encoding= "utf-8") as f:
                 text = f.read().strip()
                 results.append(text)
-
+        elif filename.endswith(".pdf"):
+            with open(file_path, "rb") as f:
+                reader = PyPDF2.PdfReader(f)
+                text = ""
+                for page in reader.pages:
+                    text += page.extract_text() or ""
+                results.append(text.strip())
     return results
 
 
