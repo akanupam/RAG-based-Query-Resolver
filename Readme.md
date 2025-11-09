@@ -4,7 +4,7 @@ This project implements a **Retrieval-Augmented Generation (RAG) pipeline** to a
 
 ---
 # Features
-Add your own .txt/.pdf files to the data/ folder to create a custom knowledge base.
+Add your own .txt/.pdf files to the data/folder to create a custom knowledge base.
 Uses the Google Gemini API for query resolution.
 Answers queries based on the content of your text files.
 Easy-to-run Python application.
